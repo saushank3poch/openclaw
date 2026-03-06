@@ -216,7 +216,7 @@ ACTIONS:
 - status: Check cron scheduler status
 - list: List jobs (use includeDisabled:true to include disabled)
 - add: Create job (requires job object, see schema below)
-- update: Modify job (requires jobId + patch object)
+- update: Modify job (requires jobId + patch object). Use this to change reminder/event times: call cron.list first to get the jobId, then cron.update with patch: { schedule: { kind: "at", at: "<ISO-8601>" } }. Reminders live in the cron system—do NOT edit files (AGENTS.md, etc.) to change times.
 - remove: Delete job (requires jobId)
 - run: Trigger job immediately (requires jobId)
 - runs: Get job run history (requires jobId)
